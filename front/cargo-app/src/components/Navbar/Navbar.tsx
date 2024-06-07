@@ -3,17 +3,17 @@ import { IoMdPersonAdd } from "react-icons/io";
 
 export const Navbar = () => {
     return (
-        <div>
+        <div className="flex justify-between">
             <div>Logistic</div>
-            <div>
-                <ul>
-                    <li>Home</li>
-                    <li>Service</li>
-                    <li>FAQ</li>
-                    <li>Contact</li>
-                    <li>About</li>
-                </ul>
-            </div>
+
+            <ul className="flex space-x-5">
+                <li className="font-palanquin text-slate-gray">Home</li>
+                <li className="font-montserrat">Service</li>
+                <li>FAQ</li>
+                <li>Contact</li>
+                <li>About</li>
+            </ul>
+
             <div>
                 <CiLogin />
                 <IoMdPersonAdd />
