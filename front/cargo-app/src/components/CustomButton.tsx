@@ -1,14 +1,12 @@
 interface ICustumButtonProps {
     title: string;
-    fullWidth?: boolean;
+    otherStyles?: string;
 }
 
-const CustomButton: React.FC<ICustumButtonProps> = ({ title, fullWidth }) => {
+const CustomButton: React.FC<ICustumButtonProps> = ({ title, otherStyles }) => {
     return (
         <div
-            className={`text-center font-montserrat text-sm font-semibold rounded-full bg-coral-red px-7 py-4 cursor-pointer text-white ${
-                fullWidth && "w-full"
-            }`}
+            className={`text-center font-montserrat text-sm font-semibold rounded-full bg-coral-red px-7 py-4 cursor-pointer text-white ${otherStyles}`}
         >
             {title}
         </div>
