@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
     return (
-        <header className="padding-x py-5 w-full bg-white shadow-md">
+        <header className="padding-x py-5 w-full bg-white shadow-sm">
             <nav className="flex justify-between items-start">
                 <Link to={"/"}>
                     <div className="text-xl font-montserrat font-bold underline text-coral-red cursor-pointer">

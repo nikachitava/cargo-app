@@ -11,8 +11,18 @@ const Hero = () => {
                         <span className="text-coral-red">home</span>
                     </h1>
                     <div className="flex items-center space-x-7 mt-10 max-lg:mt-5 ">
-                        <CustomButton title="Start Shopping" />
-                        <CustomButton title="Sing Up" />
+                        <CustomButton
+                            title="Start Shopping"
+                            otherStyles={
+                                "bg-coral-red rounded-full px-7 py-4 text-white"
+                            }
+                        />
+                        <CustomButton
+                            title="Sing Up"
+                            otherStyles={
+                                "bg-coral-red rounded-full px-7 py-4 text-white"
+                            }
+                        />
                     </div>
                 </div>
                 <div className="">

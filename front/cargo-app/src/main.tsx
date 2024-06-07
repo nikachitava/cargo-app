@@ -9,6 +9,7 @@ import { Services } from "./pages/Services.tsx";
 import { Faq } from "./pages/Faq.tsx";
 import { Contact } from "./pages/Contact.tsx";
 import { Root } from "./pages/Root.tsx";
+import { Authorization } from "./pages/Authorization.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                     <Route path="services" element={<Services />} />
                     <Route path="faq" element={<Faq />} />
                     <Route path="contact" element={<Contact />} />
+                    <Route path="authorization" element={<Authorization />} />
                 </Route>
             </Routes>
         </Router>
