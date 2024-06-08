@@ -1,5 +1,4 @@
 import { useState } from "react";
-import login from "../assets/images/login.svg";
 import CustomButton from "../components/CustomButton";
 import { SingInForm } from "../components/Authorization/SingInForm";
 import { SingUpForm } from "../components/Authorization/SingUpForm";
@@ -12,12 +11,9 @@ export const Authorization = () => {
     };
 
     return (
-        <div className="max-sm:h-[80vh] max-sm:flex max-sm:items-center">
-            <div className="padding-x py-5 max-sm:w-full">
-                <div className="block max-lg:hidden">
-                    <img src={login} alt={login} />
-                </div>
-                <div className="flex justify-center">
+        <div className="max-container w-[500px] padding-x py-5">
+            <div>
+                <div className="flex">
                     <CustomButton
                         title="SING IN"
                         otherStyles={`px-7 py-4 w-full ${

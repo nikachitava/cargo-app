@@ -3,7 +3,7 @@ import CustomButton from "../components/CustomButton";
 
 const Hero = () => {
     return (
-        <section className="padding-x py-8 w-full">
+        <section className="max-container padding-x py-8 w-full">
             <div className="flex justify-between items-center max-lg:flex-col max-lg:space-y-5">
                 <div className="space-y-8">
                     <h1 className="uppercase font-montserrat text-6xl font-bold text-left">

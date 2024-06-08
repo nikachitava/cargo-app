@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
     return (
-        <header className="padding-x py-5 w-full bg-white shadow-sm">
-            <nav className="flex justify-between items-start">
+        <header className="max-container padding-x py-5 w-full bg-white shadow-sm">
+            <nav className="flex justify-between items-start ">
                 <Link to={"/"}>
                     <div className="text-xl font-montserrat font-bold underline text-coral-red cursor-pointer">
                         LOGISTIC
@@ -42,8 +42,12 @@ export const Navbar = () => {
                 </ul>
 
                 <div className="flex space-x-2 max-lg:hidden">
-                    <CiLogin size={24} className="cursor-pointer" />
-                    <IoMdPersonAdd size={24} className="cursor-pointer" />
+                    <Link to={"/authorization"}>
+                        <CiLogin size={24} className="cursor-pointer" />
+                    </Link>
+                    <Link to={"/authorization"}>
+                        <IoMdPersonAdd size={24} className="cursor-pointer" />
+                    </Link>
                 </div>
                 <div className="hidden max-lg:block">
                     <GiHamburgerMenu size={24} className="cursor-pointer" />
