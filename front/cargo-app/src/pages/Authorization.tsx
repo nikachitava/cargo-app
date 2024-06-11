@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CustomButton from "../components/CustomButton";
-import { SingInForm } from "../components/Authorization/SingInForm";
-import { SingUpForm } from "../components/Authorization/SingUpForm";
+import SingInForm from "../components/Authorization/SingInForm";
+import SingUpForm from "../components/Authorization/SingUpForm";
 
 export const Authorization = () => {
     const [singin, setIsSingin] = useState(true);

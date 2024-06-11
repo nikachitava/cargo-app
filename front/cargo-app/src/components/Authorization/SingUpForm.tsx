@@ -1,6 +1,6 @@
 import { FloatingLabel, Button } from "flowbite-react";
 
-export const SingUpForm = () => {
+const SingUpForm = () => {
     return (
         <form className="mt-4 space-y-4">
             <FloatingLabel
@@ -35,3 +35,5 @@ export const SingUpForm = () => {
         </form>
     );
 };
+
+export default SingUpForm;
