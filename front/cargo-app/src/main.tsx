@@ -11,19 +11,26 @@ import { Contact } from "./pages/Contact.tsx";
 import { Root } from "./pages/Root.tsx";
 import { Authorization } from "./pages/Authorization.tsx";
 
+import { AuthContextProvider } from "./context/authContext.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <Router>
-            <Routes>
-                <Route path="/" element={<Root />}>
-                    <Route index element={<Home />} />
-                    <Route path="about" element={<About />} />
-                    <Route path="services" element={<Services />} />
-                    <Route path="faq" element={<Faq />} />
-                    <Route path="contact" element={<Contact />} />
-                    <Route path="authorization" element={<Authorization />} />
-                </Route>
-            </Routes>
+            <AuthContextProvider>
+                <Routes>
+                    <Route path="/" element={<Root />}>
+                        <Route index element={<Home />} />
+                        <Route path="about" element={<About />} />
+                        <Route path="services" element={<Services />} />
+                        <Route path="faq" element={<Faq />} />
+                        <Route path="contact" element={<Contact />} />
+                        <Route
+                            path="authorization"
+                            element={<Authorization />}
+                        />
+                    </Route>
+                </Routes>
+            </AuthContextProvider>
         </Router>
     </React.StrictMode>
 );

@@ -1,5 +1,12 @@
 import { FloatingLabel, Button } from "flowbite-react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../context/authContext";
+import { useContext, useState } from "react";
+
+interface ILoginData {
+    email: string;
+    password: string;
+}
 
 type Inputs = {
     email: string;
@@ -13,10 +20,21 @@ const SingInForm = () => {
         formState: { errors },
     } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+    const [err, setErr] = useState<any>();
+
+    const { login, errorMessage } = useContext(AuthContext);
+
+    const onSubmit = async (data: ILoginData) => {
+        try {
+            await login(data);
+        } catch (error) {
+            setErr(error);
+        }
+    };
 
     return (
         <form className="mt-4 space-y-4" onSubmit={handleSubmit(onSubmit)}>
+            {err && <h1>{err}</h1>}
             <FloatingLabel
                 variant="outlined"
                 label="Email"
@@ -43,15 +61,6 @@ const SingInForm = () => {
                 className="font-montserrat font-semibold"
                 {...register("password", {
                     required: "Password is required",
-
-                    minLength: {
-                        value: 8,
-                        message: "Minimum lenght 8",
-                    },
-                    maxLength: {
-                        value: 30,
-                        message: "Maximum lenght 30",
-                    },
                 })}
                 color={errors.password ? "error" : "default"}
             />
@@ -75,6 +84,11 @@ const SingInForm = () => {
             >
                 LOGIN
             </Button>
+            {errorMessage && (
+                <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                    {errorMessage}
+                </p>
+            )}
         </form>
     );
 };
