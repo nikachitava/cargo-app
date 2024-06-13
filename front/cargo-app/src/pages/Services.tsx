@@ -6,7 +6,7 @@ import post from "../assets/images/post.svg";
 
 export const Services = () => {
     return (
-        <section className="max-container padding-x py-8 w-full">
+        <section className="animate__animated animate__bounceInDown max-container padding-x py-8 w-full">
             <h1 className="font-montserrat font-bold mb-4">OUR SERVICES</h1>
             <div className="flex justify-between flex-wrap gap-8">
                 <ServicesCard img={delivery} title={"FAST DELIVERY"} />

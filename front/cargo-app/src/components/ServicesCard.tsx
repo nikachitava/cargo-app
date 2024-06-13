@@ -11,7 +11,7 @@ const ServicesCard: React.FC<IServicesCardProps> = ({ img, title }) => {
                 </p>
                 <CustomButton
                     title={"MORE"}
-                    otherStyles="bg-coral-red p-4 rounded-lg hover:bg-white"
+                    otherStyles="ease-in-out duration-300 bg-coral-red p-4 rounded-lg hover:bg-white"
                 />
             </div>
         </div>
