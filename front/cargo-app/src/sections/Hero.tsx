@@ -1,10 +1,11 @@
 import shooping_1 from "../assets/images/shopping_1.svg";
 import CustomButton from "../components/CustomButton";
+import "animate.css";
 
 const Hero = () => {
     return (
-        <section className="max-container padding-x py-8 w-full">
-            <div className="flex justify-between items-center max-lg:flex-col max-lg:space-y-5">
+        <section className="max-container padding-x py-8 w-full animate__animated animate__zoomIn">
+            <div className="flex justify-between py-16 items-center max-lg:flex-col max-lg:space-y-5 max-lg:py-0">
                 <div className="space-y-8">
                     <h1 className="uppercase font-montserrat text-6xl font-bold text-left">
                         ShopPing without leaving{" "}
