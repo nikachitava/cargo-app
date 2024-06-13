@@ -1,22 +1,41 @@
+import axios from "axios";
 import { FloatingLabel, Button } from "flowbite-react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
-type Inputs = {
-    username: string;
+interface Inputs {
+    name: string;
     surname: string;
     email: string;
     password: string;
     confirmPassword: string;
-};
+}
 
 const SingUpForm = () => {
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+    const onSubmit = (data: Inputs) => {
+        axios
+            .post("http://localhost:3000/auth/singup", data)
+            .then((response) => {
+                console.log(response.data);
+                window.location.reload();
+            })
+            .catch((error) => {
+                if (error.response && error.response.data) {
+                    setErrorMessage(error.response.data.message);
+                } else {
+                    setErrorMessage(
+                        "An error occurred while processing your request."
+                    );
+                }
+            });
+    };
 
     return (
         <form className="mt-4 space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -24,7 +43,7 @@ const SingUpForm = () => {
                 variant="outlined"
                 label="Name"
                 className="font-montserrat font-semibold"
-                {...register("username", {
+                {...register("name", {
                     required: "Username is required",
                     minLength: {
                         value: 3,
@@ -35,12 +54,12 @@ const SingUpForm = () => {
                         message: "Maximum lenght 30",
                     },
                 })}
-                color={errors.username ? "error" : "default"}
+                color={errors.name ? "error" : "default"}
             />
 
-            {errors.username && (
+            {errors.name && (
                 <span className="text-xs font-montserrat text-red-600">
-                    {errors.username.message}
+                    {errors.name.message}
                 </span>
             )}
 
@@ -135,6 +154,11 @@ const SingUpForm = () => {
             >
                 REGISTRATION
             </Button>
+            {errorMessage && (
+                <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                    {errorMessage}
+                </p>
+            )}
         </form>
     );
 };

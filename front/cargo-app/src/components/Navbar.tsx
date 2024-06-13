@@ -1,9 +1,16 @@
+import { useContext } from "react";
 import { CiLogin } from "react-icons/ci";
-import { IoMdPersonAdd } from "react-icons/io";
+import { CiLogout } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
 
 export const Navbar = () => {
+    const { currentUser, logout } = useContext(AuthContext);
+    const handleLogOut = async () => {
+        await logout();
+    };
+
     return (
         <header className="max-container padding-x py-5 w-full bg-white shadow-sm">
             <nav className="flex justify-between items-start ">
@@ -42,12 +49,17 @@ export const Navbar = () => {
                 </ul>
 
                 <div className="flex space-x-2 max-lg:hidden">
-                    <Link to={"/authorization"}>
-                        <CiLogin size={24} className="cursor-pointer" />
-                    </Link>
-                    <Link to={"/authorization"}>
-                        <IoMdPersonAdd size={24} className="cursor-pointer" />
-                    </Link>
+                    {currentUser ? (
+                        <CiLogout
+                            size={24}
+                            className="cursor-pointer"
+                            onClick={handleLogOut}
+                        />
+                    ) : (
+                        <Link to={"/authorization"}>
+                            <CiLogin size={24} className="cursor-pointer" />
+                        </Link>
+                    )}
                 </div>
                 <div className="hidden max-lg:block">
                     <GiHamburgerMenu size={24} className="cursor-pointer" />
