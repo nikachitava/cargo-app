@@ -1,15 +1,12 @@
 import { useContext } from "react";
 import { CiLogin } from "react-icons/ci";
-import { CiLogout } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import { UserAvatarDropDown } from "./UserAvatarDropDown";
 
 export const Navbar = () => {
-    const { currentUser, logout } = useContext(AuthContext);
-    const handleLogOut = async () => {
-        await logout();
-    };
+    const { currentUser } = useContext(AuthContext);
 
     return (
         <header className="max-container padding-x py-5 w-full bg-white shadow-sm">
@@ -50,10 +47,10 @@ export const Navbar = () => {
 
                 <div className="flex space-x-2 max-lg:hidden">
                     {currentUser ? (
-                        <CiLogout
-                            size={24}
-                            className="cursor-pointer"
-                            onClick={handleLogOut}
+                        <UserAvatarDropDown
+                            avatar={
+                                "https://cdn.iconscout.com/icon/free/png-256/free-avatar-370-456322.png?f=webp"
+                            }
                         />
                     ) : (
                         <Link to={"/authorization"}>
