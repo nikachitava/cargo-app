@@ -7,6 +7,8 @@ const app = express()
 import {connection} from './connection.js'
 
 import authRoutes from './routes/auth.js'
+import serviceRoute from "./routes/services.js"
+
 
 const PORT = 3000
 
@@ -23,7 +25,9 @@ app.use(
 );
 app.use(cookieParser())
 
-app.use("/auth", authRoutes)
+
+app.use("/auth", authRoutes);
+app.use("/services", serviceRoute);
 
 
 app.listen(PORT, () => {
