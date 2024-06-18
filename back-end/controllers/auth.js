@@ -1,17 +1,23 @@
 import { connection } from '../connection.js'
 import jwt from 'jsonwebtoken'
 
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 export const singup = (req, res) => {
     const {name, surname, email, password} = req.body;
 
     const query = "SELECT * from users WHERE email = ?";
+    
+    const roomID = generateRandomNumber(10000, 999999);
 
     connection.query(query, [email], (err, data) => {
         if(err) return res.status(500).json(err);
         if(data.length) return res.status(409).json({message: "This email already in use"})
 
-        const query = "INSERT INTO users (`name`, `surname`, `email`, `password`) VALUES (?,?,?,?)";
-        connection.query(query, [name, surname, email, password], (err) => {
+        const query = "INSERT INTO users (`name`, `surname`, `email`, `password`, roomID) VALUES (?,?,?,?,?)";
+        connection.query(query, [name, surname, email, password, roomID], (err) => {
             if(err) return res.status(500).json(err);
             return res.status(200).json({message: "User has been created."}) 
         })
