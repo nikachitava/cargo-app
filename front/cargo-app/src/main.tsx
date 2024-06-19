@@ -10,6 +10,7 @@ import { Faq } from "./pages/Faq.tsx";
 import { Contact } from "./pages/Contact.tsx";
 import { Root } from "./pages/Root.tsx";
 import { Authorization } from "./pages/Authorization.tsx";
+import { Profile } from "./pages/Profile.tsx";
 
 import { AuthContextProvider } from "./context/authContext.tsx";
 
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                         <Route path="services" element={<Services />} />
                         <Route path="faq" element={<Faq />} />
                         <Route path="contact" element={<Contact />} />
+                        <Route path="profile" element={<Profile />} />
                         <Route
                             path="authorization"
                             element={<Authorization />}

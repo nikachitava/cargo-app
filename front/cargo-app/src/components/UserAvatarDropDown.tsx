@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Avatar } from "flowbite-react";
 import { AuthContext } from "../context/authContext";
+import { IoIosArrowDropdown } from "react-icons/io";
+import { IoIosArrowDropup } from "react-icons/io";
 
 interface IUserAvatar {
-    avatar: string;
+    roomID: number;
 }
 
-export const UserAvatarDropDown: React.FC<IUserAvatar> = ({ avatar }) => {
+export const UserAvatarDropDown: React.FC<IUserAvatar> = ({ roomID }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<any>(null);
 
@@ -42,13 +43,16 @@ export const UserAvatarDropDown: React.FC<IUserAvatar> = ({ avatar }) => {
             className="relative inline-block text-left cursor-pointer"
             ref={dropdownRef}
         >
-            <div onClick={toggleDropdown}>
-                <Avatar
-                    img={avatar}
-                    alt="user avatar"
-                    rounded
-                    className="relative"
-                />
+            <div
+                className="flex justify-center items-center gap-1"
+                onClick={toggleDropdown}
+            >
+                <span className="font-montserrat font-semibold">{roomID}</span>
+                {!isOpen ? (
+                    <IoIosArrowDropdown color="black" />
+                ) : (
+                    <IoIosArrowDropup color="black" />
+                )}
             </div>
             {/* Dropdown menu */}
             {isOpen && (
@@ -65,10 +69,10 @@ export const UserAvatarDropDown: React.FC<IUserAvatar> = ({ avatar }) => {
                                 </span>
                             </p>
                         </li>
-                        <Link to={"/settings"}>
+                        <Link to={"/profile"}>
                             <li>
                                 <p className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                    Settings
+                                    Profile
                                 </p>
                             </li>
                         </Link>
