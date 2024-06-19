@@ -8,6 +8,7 @@ import {connection} from './connection.js'
 
 import authRoutes from './routes/auth.js'
 import serviceRoute from "./routes/services.js"
+import countriesRoute from "./routes/countries.js"
 
 
 const PORT = 3000
@@ -28,6 +29,7 @@ app.use(cookieParser())
 
 app.use("/auth", authRoutes);
 app.use("/services", serviceRoute);
+app.use("/countries", countriesRoute);
 
 
 app.listen(PORT, () => {
