@@ -4,12 +4,16 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 import { UserAvatarDropDown } from "./UserAvatarDropDown";
+import { FaRegLightbulb } from "react-icons/fa";
+import { FaLightbulb } from "react-icons/fa";
+import { DarkModeContext } from "../context/darkModeContext";
 
 export const Navbar = () => {
     const { currentUser } = useContext(AuthContext);
+    const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
 
     return (
-        <div className="bg-white">
+        <div className="bg-white dark:bg-black">
             <header className="max-container padding-x py-5 w-full bg-white shadow-sm">
                 <nav className="flex justify-between items-start">
                     <Link to={"/"}>
@@ -46,13 +50,21 @@ export const Navbar = () => {
                         </Link>
                     </ul>
 
-                    <div className="flex space-x-2 max-lg:hidden">
+                    <div className="flex space-x-2 max-lg:hidden items-center">
                         {currentUser ? (
                             <UserAvatarDropDown roomID={currentUser.roomID} />
                         ) : (
                             <Link to={"/authorization"}>
                                 <CiLogin size={24} className="cursor-pointer" />
                             </Link>
+                        )}
+                        {!isDarkMode ? (
+                            <FaLightbulb onClick={toggleDarkMode} />
+                        ) : (
+                            <FaRegLightbulb
+                                onClick={toggleDarkMode}
+                                color="black"
+                            />
                         )}
                     </div>
                     <div className="hidden max-lg:block">

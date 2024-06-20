@@ -6,7 +6,7 @@ export const Profile = () => {
     const { currentUser } = useContext(AuthContext);
 
     return (
-        <section className="">
+        <section>
             <div className="padding-x py-8 w-full">
                 <h1 className="text-center font-palanquin font-bold text-2xl">
                     👋 Hello, {currentUser?.name}
