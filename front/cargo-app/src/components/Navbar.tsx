@@ -55,7 +55,11 @@ export const Navbar = () => {
                             <UserAvatarDropDown roomID={currentUser.roomID} />
                         ) : (
                             <Link to={"/authorization"}>
-                                <CiLogin size={24} className="cursor-pointer" />
+                                <CiLogin
+                                    size={24}
+                                    className="cursor-pointer"
+                                    color={isDarkMode ? "white" : "black"}
+                                />
                             </Link>
                         )}
                         {!isDarkMode ? (

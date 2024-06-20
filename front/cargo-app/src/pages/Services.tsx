@@ -24,8 +24,10 @@ export const Services = () => {
     }, []);
 
     return (
-        <section className="max-container animate__animated animate__bounceInDown padding-x py-8 w-full">
-            <h1 className="font-montserrat font-bold mb-4">OUR SERVICES</h1>
+        <section className="max-container animate__animated animate__bounceInDown padding-x py-8 w-full dark:bg-dark-dark">
+            <h1 className="font-montserrat font-bold mb-4 dark:text-white">
+                OUR SERVICES
+            </h1>
 
             <div className="grid grid-cols-4 gap-8 max-lg:grid-cols-1">
                 {services &&

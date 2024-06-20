@@ -11,7 +11,7 @@ const CustomButton: React.FC<ICustumButtonProps> = ({
 }) => {
     return (
         <div
-            className={`text-center font-montserrat text-sm font-semibold cursor-pointer ${otherStyles}`}
+            className={`text-center font-montserrat text-sm font-semibold cursor-pointer ${otherStyles} dark:text-white`}
             onClick={onClick}
         >
             {title}

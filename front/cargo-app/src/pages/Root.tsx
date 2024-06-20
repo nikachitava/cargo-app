@@ -6,9 +6,9 @@ export const Root = () => {
     const isAuthorizationPage = location.pathname === "/authorization";
 
     return (
-        <>
+        <div className="dark:bg-dark-dark">
             {!isAuthorizationPage && <Navbar />}
             <Outlet />
-        </>
+        </div>
     );
 };

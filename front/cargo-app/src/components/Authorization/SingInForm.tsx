@@ -72,7 +72,7 @@ const SingInForm = () => {
             )}
 
             <div className="">
-                <span className="text-sm text-slate-gray font-montserrat">
+                <span className="text-sm text-slate-gray font-montserrat dark:text-white">
                     Forgot password?
                 </span>
             </div>
