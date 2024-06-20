@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { IoIosArrowDropup } from "react-icons/io";
+import { DarkModeContext } from "../context/darkModeContext";
 
 interface IUserAvatar {
     roomID: number;
@@ -33,6 +34,7 @@ export const UserAvatarDropDown: React.FC<IUserAvatar> = ({ roomID }) => {
     }, []);
 
     const { logout } = useContext(AuthContext);
+    const { isDarkMode } = useContext(DarkModeContext);
 
     const handleLogOut = async () => {
         await logout();
@@ -47,11 +49,15 @@ export const UserAvatarDropDown: React.FC<IUserAvatar> = ({ roomID }) => {
                 className="flex justify-center items-center gap-1"
                 onClick={toggleDropdown}
             >
-                <span className="font-montserrat font-semibold">{roomID}</span>
+                <span className="font-montserrat font-semibold dark:text-white">
+                    {roomID}
+                </span>
                 {!isOpen ? (
-                    <IoIosArrowDropdown color="black" />
+                    <IoIosArrowDropdown
+                        color={isDarkMode ? "white" : "black"}
+                    />
                 ) : (
-                    <IoIosArrowDropup color="black" />
+                    <IoIosArrowDropup color={isDarkMode ? "white" : "black"} />
                 )}
             </div>
             {/* Dropdown menu */}

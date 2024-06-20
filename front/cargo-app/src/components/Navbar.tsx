@@ -13,8 +13,8 @@ export const Navbar = () => {
     const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
 
     return (
-        <div className="bg-white dark:bg-black">
-            <header className="max-container padding-x py-5 w-full bg-white shadow-sm">
+        <div className="bg-white dark:bg-light-dark">
+            <header className="max-container padding-x py-5 w-full bg-white shadow-sm dark:bg-light-dark ">
                 <nav className="flex justify-between items-start">
                     <Link to={"/"}>
                         <div className="text-xl font-montserrat font-bold underline text-coral-red cursor-pointer">
@@ -24,27 +24,27 @@ export const Navbar = () => {
 
                     <ul className="flex space-x-5 max-lg:hidden">
                         <Link to={"/"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary cursor-pointer">
+                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
                                 Home
                             </li>
                         </Link>
                         <Link to={"/services"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary cursor-pointer">
+                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
                                 Service
                             </li>
                         </Link>
                         <Link to={"/faq"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary cursor-pointer">
+                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
                                 FAQ
                             </li>
                         </Link>
                         <Link to={"/contact"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary cursor-pointer">
+                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
                                 Contact
                             </li>
                         </Link>
                         <Link to={"/about"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary cursor-pointer">
+                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
                                 About
                             </li>
                         </Link>
@@ -59,11 +59,15 @@ export const Navbar = () => {
                             </Link>
                         )}
                         {!isDarkMode ? (
-                            <FaLightbulb onClick={toggleDarkMode} />
+                            <FaLightbulb
+                                className="cursor-pointer"
+                                onClick={toggleDarkMode}
+                            />
                         ) : (
                             <FaRegLightbulb
+                                className="cursor-pointer"
                                 onClick={toggleDarkMode}
-                                color="black"
+                                color="white"
                             />
                         )}
                     </div>
