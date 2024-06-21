@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CiLogin } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
@@ -11,6 +11,11 @@ import { DarkModeContext } from "../context/darkModeContext";
 export const Navbar = () => {
     const { currentUser } = useContext(AuthContext);
     const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
+    const [activePage, setActivePage] = useState("Home");
+
+    const changeActivePage = (pageName: string) => {
+        setActivePage(pageName);
+    };
 
     return (
         <div className="bg-white dark:bg-light-dark">
@@ -24,27 +29,62 @@ export const Navbar = () => {
 
                     <ul className="flex space-x-5 max-lg:hidden">
                         <Link to={"/"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
+                            <li
+                                className={`${
+                                    activePage == "Home"
+                                        ? "text-dark-dark"
+                                        : "text-slate-gray"
+                                } font-montserrat hover:text-primary font-bold cursor-pointer dark:text-white dark:hover:text-gray-300`}
+                                onClick={() => changeActivePage("Home")}
+                            >
                                 Home
                             </li>
                         </Link>
                         <Link to={"/services"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
+                            <li
+                                className={`${
+                                    activePage == "Services"
+                                        ? "text-dark-dark"
+                                        : "text-slate-gray"
+                                } font-montserrat hover:text-primary font-bold cursor-pointer dark:text-white dark:hover:text-gray-300`}
+                                onClick={() => changeActivePage("Services")}
+                            >
                                 Service
                             </li>
                         </Link>
                         <Link to={"/faq"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
+                            <li
+                                className={`${
+                                    activePage == "Faq"
+                                        ? "text-dark-dark"
+                                        : "text-slate-gray"
+                                } font-montserrat hover:text-primary font-bold cursor-pointer dark:text-white dark:hover:text-gray-300`}
+                                onClick={() => changeActivePage("Faq")}
+                            >
                                 FAQ
                             </li>
                         </Link>
                         <Link to={"/contact"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
+                            <li
+                                className={`${
+                                    activePage == "Contact"
+                                        ? "text-dark-dark"
+                                        : "text-slate-gray"
+                                } font-montserrat hover:text-primary font-bold cursor-pointer dark:text-white dark:hover:text-gray-300`}
+                                onClick={() => changeActivePage("Contact")}
+                            >
                                 Contact
                             </li>
                         </Link>
                         <Link to={"/about"}>
-                            <li className="font-montserrat text-slate-gray hover:text-primary  cursor-pointer dark:text-white dark:hover:text-gray-300">
+                            <li
+                                className={`${
+                                    activePage == "About"
+                                        ? "text-dark-dark"
+                                        : "text-slate-gray"
+                                } font-montserrat  hover:text-primary font-bold cursor-pointer dark:text-white dark:hover:text-gray-300`}
+                                onClick={() => changeActivePage("About")}
+                            >
                                 About
                             </li>
                         </Link>
