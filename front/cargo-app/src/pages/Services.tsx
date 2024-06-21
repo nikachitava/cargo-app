@@ -24,7 +24,7 @@ export const Services = () => {
     }, []);
 
     return (
-        <section className="max-container animate__animated animate__bounceInDown padding-x py-8 w-full dark:bg-dark-dark">
+        <section className="max-container animate__animated animate__bounceInDown padding-x py-8 w-full dark:bg-dark-dark ">
             <h1 className="font-montserrat font-bold mb-4 dark:text-white">
                 OUR SERVICES
             </h1>
